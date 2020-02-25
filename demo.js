@@ -99,8 +99,8 @@ function thingname(thing) {
 }
 
 client.on('voiceStateUpdate', (oldMember, newMember) => {
-    console.log("Scribe: oldChannel:", thingname(oldMember.channel));
-    console.log("Scribe: newChannel:", thingname(newMember.channel));
+    console.log("voiceStateUpdate: oldChannel:", thingname(oldMember.channel));
+    console.log("voiceStateUpdate: newChannel:", thingname(newMember.channel));
 
     if (oldMember.channel !== null) {
         if (oldMember.channel != voicechannel) {
@@ -119,12 +119,14 @@ client.on('ready', () => {
     console.log('Scribe: ready!');
     myid = client.user.id;
 
-    console.log("Channels", client.channels);
-    voicechannel = client.channels.get(channelid);
-    console.log("voice channel", voicechannel);
-    console.log("Joining...");
-    voicechannel.join()
+    console.log("ready Channels", client.channels);
+    client.channels.fetch(channelid)
+        .then(function (channel) {
+            // Set the global
+            voicechannel = channel;
+            console.log("voice channel", voicechannel);
+            console.log("Joining...");
+            return voicechannel.join();
+        })
         .then(thenJoinVoiceChannel);
-    // .catch(console.log);
-    console.log("Joined");
 });
