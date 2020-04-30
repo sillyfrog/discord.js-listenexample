@@ -1,4 +1,4 @@
-// Call with someting like:
+// Call with something like:
 // node demo.js  ./auth.json <channel-id>
 /*
 auth.json file needs:
@@ -70,7 +70,7 @@ function thenJoinVoiceChannel(conn) {
             //msg.channel.sendMessage(`I'm listening to ${user}`);
             console.log(`Scribe: listening to ${user.username}`);
             // console.log(`Scribe: CONN ${conn}`, conn);
-            console.log(`Scribe: SPEAKING ${speaking}`, speaking);
+            console.log(`Scribe: SPEAKING`, speaking);
             // this creates a 16-bit signed PCM, stereo 48KHz PCM stream.
             const audioStream = receiver.createStream(user, { mode: 'pcm' });
             //const audioStream = receiver.createStream(user, { mode: 'opus' });
@@ -119,7 +119,7 @@ client.on('ready', () => {
     console.log('Scribe: ready!');
     myid = client.user.id;
 
-    console.log("ready Channels", client.channels);
+    console.log("Ready");
     client.channels.fetch(channelid)
         .then(function (channel) {
             // Set the global

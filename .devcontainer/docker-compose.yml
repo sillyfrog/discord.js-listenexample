@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  listendemo:
+    image: listendemo
+    command:
+      ["sleep", "infinity"]
+    build:
+      context: ../
+    volumes:
+      - ../:/workspace/
+      # This lets you avoid setting up Git again in the container
+      - ~/.gitconfig:/root/.gitconfig
+      - ~/.config/:/root/.config/

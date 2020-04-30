@@ -1,0 +1,11 @@
+{
+    "service": "listendemo",
+    "name": "discordlisten",
+    "dockerComposeFile": [
+        "docker-compose.yml"
+    ],
+    "workspaceFolder": "/workspace",
+    "shutdownAction": "stopCompose",
+    "extensions": [],
+    "overrideCommand": true,
+}
