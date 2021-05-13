@@ -17,7 +17,7 @@ WAV_SPECS = (1, 2, 48000, 0, "NONE", "NONE")
 
 for srcfn in sys.argv[1:]:
     dstfn = srcfn + ".wav"
-    print(f"Converting: {srcfn} > {dstfn}")
+    print("Converting: {} > {}".format(srcfn, dstfn))
 
     pcmfh = open(srcfn, "rb")
     wavfh = wave.open(dstfn, "wb")

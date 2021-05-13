@@ -13,5 +13,6 @@ RUN npm install git+https://github.com/discordjs/discord.js.git \
 
 RUN mkdir /app/recordings
 COPY join.mp3 /app/
+COPY convertpcmtowav.py /app/
 COPY demo.js /app/
 COPY auth.json /app/
