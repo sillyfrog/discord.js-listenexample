@@ -19,7 +19,7 @@ const configfn = process.argv[2];
 const channelid = process.argv[3];
 console.log(`Scribe: Config filename: ${configfn}  Channel ID: ${channelid}`);
 
-const client = new Discord.Client();
+const client = new Discord.Client({ intents: Discord.Intents.ALL });
 
 const config = require(configfn);
 
